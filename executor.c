@@ -9,7 +9,7 @@
 int main(void)
 {
 	char *line, *path, *fullpath;
-	char **tokens;
+	char *tokens;
 	int flag, builtin_stat, child_stat;
 	struct stat buf;
 

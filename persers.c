@@ -7,7 +7,7 @@
  */
 char *perser(char *str)
 {
-	char **token;
+	char *token;
 	char *tok;
 	unsigned int i;
 

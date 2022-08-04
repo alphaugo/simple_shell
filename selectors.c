@@ -37,7 +37,7 @@ char *selector(char *command, char *fullpath, char *path)
 
 		if (fullpath == NULL)
 		{
-			errors(3);
+			perror("Error:");
 			return (NULL);
 		}
 
