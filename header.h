@@ -6,6 +6,8 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <unistd.h>
+#include <sys/wait.h>
+#include <string.h>
 
 #define BUFFER 1024
 #define TRUE 1
@@ -56,7 +58,7 @@ char *selector(char *command, char *fullpath, char *path);
 void freeall(char **tokens, char *path, char *line, char *fullpath, int flag);
 void free_dp(char **array, unsigned int length);
 
-//Utility functions
+/* Utility functions */
 void _puts(char *str);
 int _strlen(const char *str);
 int _strcmp(char *name, char *variable, unsigned int length);
