@@ -49,7 +49,7 @@ typedef struct built
 void prompt(int fd, struct stat buf);
 char *_getline(FILE *fd);
 char *_getenv(const char *name);
-char **perser(char *str);
+char *perser(char *str);
 int inbuilt_exe(char **tokens);
 char *selector(char *command, char *fullpath, char *path);
 /* free functions */
