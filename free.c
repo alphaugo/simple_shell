@@ -1,4 +1,5 @@
 #include "header.h"
+
 /**
  * free_all - frees all malloc'd space at end of main loop
  * @tokens: pointer to tokens array
@@ -8,13 +9,12 @@
  * @flag: flag marking if full_path was malloc'd
  * Return: void
  */
-
 void freeall(char **tokens, char *path, char *line, char *fullpath, int flag)
 {
-    free(path);
-    free(tokens);
-    if (flag == 1)
-            free(fullpath);
+	free(path);
+	free(tokens);
+	if (flag == 1)
+		free(fullpath);
 }
 
 /**
@@ -23,16 +23,15 @@ void freeall(char **tokens, char *path, char *line, char *fullpath, int flag)
  * @length: length of double pointer
  * Return: void
  */
-
 void free_dp(char **array, unsigned int length)
 {
-    unsigned int i;
+	unsigned int i;
 
-    i = 0;
-    while (i < length)
-    {
-        free(array[i]);
-        i++;
-    }
-    free(array);
+	i = 0;
+	while (i < length)
+	{
+		free(array[i]);
+		i++;
+	}
+	free(array);
 }

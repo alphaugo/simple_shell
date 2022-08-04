@@ -1,4 +1,5 @@
 #include "header.h"
+
 /**
  * selector - searches directories in PATH variable for command
  * @command: to search for
@@ -6,57 +7,55 @@
  * @path: full PATH variable
  * Return: pointer to full_path
  */
-
 char *selector(char *command, char *fullpath, char *path)
 {
-    unsigned int commandlength, pathlength, originalpath_length;
-    char *pathcopy, *token;
+	unsigned int commandlength, pathlength, originalpath_length;
+	char *pathcopy, *token;
 
-    commandlength = _strlen(command);
-    originalpath_length = _strlen(path);
-    pathcopy = malloc(sizeof(char) * originalpath_length + 1);
+	commandlength = _strlen(command);
+	originalpath_length = _strlen(path);
+	pathcopy = malloc(sizeof(char) * originalpath_length + 1);
 
-    if (pathcopy == NULL)
-    {
-        errors (3);
-        return (NULL);
-    }
+	if (pathcopy == NULL)
+	{
+		errors(3);
+		return (NULL);
+	}
 
-    _strcpy(pathcopy, path);
+	_strcpy(pathcopy, path);
 
-    /* copy PATH directory + command name and check if it exists */
-    token = strtok(pathcopy, ":");
-    if (token != NULL)
-        token = strtok(NULL, ":");
-        
-    while (token != NULL)
-    {
-        pathlength = _strlen(token);
+	/* copy PATH directory + command name and check if it exists */
+	token = strtok(pathcopy, ":");
+	if (token != NULL)
+		token = strtok(NULL, ":");
 
-        fullpath = malloc(sizeof(char) * (pathlength + commandlength) + 2);
+	while (token != NULL)
+	{
+		pathlength = _strlen(token);
 
-        if (fullpath == NULL)
-        {
-            errors (3);
-            return (NULL);
-        }
+		fullpath = malloc(sizeof(char) * (pathlength + commandlength) + 2);
 
-        _strcpy(fullpath, token);
-        fullpath[pathlength] = '/';
-        _strcpy(fullpath + pathlength + 1, command);
-        fullpath[pathlength + commandlength + 1] = '\0';
-        
-        if (access(fullpath, X_OK) != 0)
-        {
-            free(fullpath);
-            fullpath = NULL;
+		if (fullpath == NULL)
+		{
+			errors(3);
+			return (NULL);
+		}
 
-            token = strtok(NULL, ":");
-        }
-        else
-            break;
-    }
-    free (pathcopy);
-    return (fullpath);
+		_strcpy(fullpath, token);
+		fullpath[pathlength] = '/';
+		_strcpy(fullpath + pathlength + 1, command);
+		fullpath[pathlength + commandlength + 1] = '\0';
 
+		if (access(fullpath, X_OK) != 0)
+		{
+			free(fullpath);
+			fullpath = NULL;
+
+			token = strtok(NULL, ":");
+		}
+		else
+			break;
+	}
+	free(pathcopy);
+	return (fullpath);
 }

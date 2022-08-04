@@ -11,9 +11,9 @@
 
 #define BUFFER 1024
 #define TRUE 1
-#define PROMPT "$"
+#define PROMPT "$ "
 #define MALLOC_ERR "Unable to allocate memory dynamically"
-#define FURK_ERR "Unable to fork"
+#define FORK_ERR "Unable to fork"
 #define PATH_ERR "No such file nor directory"
 
 extern char **environ;
@@ -26,7 +26,6 @@ extern char **environ;
  * @next: pointer to the next node
  * Description: generic linkedlist
  */
-
 typedef struct list
 {
     char *value;
@@ -37,11 +36,10 @@ typedef struct list
  * struct built - structure
  * 
  * @name: name
- * @p: pointer to a fumction
+ * @p: pointer to a function
  * 
- * Description: sturcture for builtin functions
+ * Description: structure for builtin functions
  */
-
 typedef struct built
 {
     char *name;
@@ -65,7 +63,7 @@ int _strcmp(char *name, char *variable, unsigned int length);
 int _strncmp(char *name, char *variable, unsigned int length);
 char *_strcpy(char *dest, char *src);
 
-/* prototype for inbuilts */
+/* prototype for inbuilt functions */
 int shell_env(void);
 int shell_exit(void);
 int inbuilt_exe(char **tokens);

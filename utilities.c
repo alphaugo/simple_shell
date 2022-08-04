@@ -7,25 +7,25 @@
  * @length: length of name
  * Return: 1 if strings are equal, -1 if they are not
  */
-
 int _strcmp(char *name, char *variable, unsigned int length)
 {
-    unsigned int var_length;
-    unsigned int i;
+	unsigned int var_length;
+	unsigned int i;
 
-    var_length = _strlen(variable);
-    if (var_length != length)
-            return (-1);
-    
-    i = 0;
-    while (name[i] != '\0' && variable[i] != '\0')
-    {
-        if (name[i] != variable[i])
-                return (1);
-        i++;
-    }
-    return (0);
+	var_length = _strlen(variable);
+	if (var_length != length)
+		return (-1);
+
+	i = 0;
+	while (name[i] != '\0' && variable[i] != '\0')
+	{
+		if (name[i] != variable[i])
+			return (1);
+		i++;
+	}
+	return (0);
 }
+
 /**
  * _strncmp - compares two strings
  * up to given length are the same
@@ -64,6 +64,7 @@ char *_strcpy(char *dest, char *src)
 
 	return (dest);
 }
+
 /**
  * _strlen - returns the length of a string
  * @s: string to be evaluated
