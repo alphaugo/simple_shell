@@ -5,7 +5,7 @@
  * @str: user input
  * Return: pointer to array of tokens.
  */
-char **perser(char *str)
+char *perser(char *str)
 {
 	char **token;
 	char *tok;

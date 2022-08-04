@@ -9,7 +9,8 @@
  * @flag: flag marking if full_path was malloc'd
  * Return: void
  */
-void freeall(char **tokens, char *path, char *line, char *fullpath, int flag)
+void freeall(char **tokens, char *path, __attribute__((unused)) char *line,
+			 char *fullpath, int flag)
 {
 	free(path);
 	free(tokens);

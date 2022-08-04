@@ -18,7 +18,7 @@ char *selector(char *command, char *fullpath, char *path)
 
 	if (pathcopy == NULL)
 	{
-		errors(3);
+		perror("Error:");
 		return (NULL);
 	}
 
