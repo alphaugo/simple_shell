@@ -49,9 +49,12 @@ typedef struct built
 void prompt(int fd, struct stat buf);
 char *_getline(FILE *fd);
 char *_getenv(const char *name);
-char *perser(char *str);
+char **perser(char *str);
 int inbuilt_exe(char **tokens);
 char *selector(char *command, char *fullpath, char *path);
+char **copy_en(char **environ_copy, unsigned int environ_length);
+int child(char *fullpath, char **tokens);
+
 /* free functions */
 void freeall(char **tokens, char *path, char *line, char *fullpath, int flag);
 void free_dp(char **array, unsigned int length);
@@ -62,7 +65,8 @@ int _strlen(const char *str);
 int _strcmp(char *name, char *variable, unsigned int length);
 int _strncmp(char *name, char *variable, unsigned int length);
 char *_strcpy(char *dest, char *src);
-
+/* prototype for error functions */
+void errors(int errors);
 /* prototype for inbuilt functions */
 int shell_env(void);
 int shell_exit(void);

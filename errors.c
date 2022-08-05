@@ -5,9 +5,9 @@
  * @error: error number associated with statements
  * Return: nothing.
  */
-void errors(int error)
+void errors(int errors)
 {
-	switch (error)
+	switch (errors)
 	{
 	case 1: /* writes fork error to stderr */
 		write(STDERR_FILENO, FORK_ERR, _strlen(FORK_ERR));

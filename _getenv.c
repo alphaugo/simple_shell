@@ -31,16 +31,16 @@ char *_getenv(const char *name)
 		{
 			value = strtok(variable, "=");
 			value = strtok(NULL, "\n");
-			if (value == '\0')
+			if (value == NULL)
 			{
-				perror("Error:");
+				errors(4);
 				exit(EXIT_FAILURE);
 			}
 			path_length = _strlen(value);
 			path = malloc(sizeof(char) * path_length + 1);
 			if (path == NULL)
 			{
-				perror("Error:");
+				errors(3);
 				return (NULL);
 			}
 			path = _strcpy(path, value);

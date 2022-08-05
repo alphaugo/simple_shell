@@ -9,7 +9,7 @@
 int main(void)
 {
 	char *line, *path, *fullpath;
-	char *tokens;
+	char **tokens;
 	int flag, builtin_stat, child_stat;
 	struct stat buf;
 
@@ -26,7 +26,7 @@ int main(void)
 		if (tokens[0] == NULL)
 			continue;
 		builtin_stat = inbuilt_exe(tokens);
-		if (builtin_stat = inbuilt_exe(tokens))
+		if (builtin_stat == 0 || builtin_stat == -1)
 		{
 			free(tokens);
 			free(line);
@@ -46,7 +46,7 @@ int main(void)
 
 		child_stat = child(fullpath, tokens);
 		if (child_stat == -1)
-			perror("Error:");
+			errors(2);
 		freeall(tokens, path, line, fullpath, flag);
 	}
 	return (0);
